@@ -1,0 +1,5 @@
+import type { ErrorRequestHandler, RequestHandler } from "express";
+import mongoose from "mongoose";
+import { HttpError } from "../utils/http";
+export const notFound: RequestHandler = (_req, res) => { res.status(404).json({ success: false, message: "API route not found." }); };
+export const errorHandler: ErrorRequestHandler = (error: unknown, _req, res, _next) => { let status = 500; let message = "An unexpected server error occurred."; if (error instanceof HttpError) { status = error.status; message = error.message; } else if (error instanceof mongoose.Error.ValidationError) { status = 400; message = Object.values(error.errors).map((e) => e.message).join("; "); } else if (error instanceof mongoose.Error.CastError) { status = 400; message = `Invalid ${error.path}.`; } else if (error && typeof error === "object" && "code" in error && error.code === 11000) { status = 409; message = "A record with these details already exists."; } else if (process.env.NODE_ENV !== "production" && error instanceof Error) message = error.message; res.status(status).json({ success: false, message }); };

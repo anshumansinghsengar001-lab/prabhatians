@@ -1,0 +1,10 @@
+import { Router } from "express";
+import { authenticate } from "../middleware/auth";
+import { asyncHandler, validateBody } from "../utils/http";
+import { register, login, currentUser } from "../controllers/authController";
+import { registerSchema, loginSchema } from "../validators/auth";
+const router = Router();
+router.post("/register", validateBody(registerSchema), asyncHandler(register));
+router.post("/login", validateBody(loginSchema), asyncHandler(login));
+router.get("/me", authenticate, asyncHandler(currentUser));
+export default router;

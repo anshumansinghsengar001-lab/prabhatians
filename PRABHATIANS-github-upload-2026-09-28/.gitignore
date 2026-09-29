@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+dist/
+test-dist/
+backend/dist/
+backend/test-dist/
+backend/node_modules/
+backend/uploads/
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+*.tsbuildinfo

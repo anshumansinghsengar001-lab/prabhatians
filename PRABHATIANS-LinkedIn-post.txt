@@ -1,0 +1,13 @@
+I’m excited to share PRABHATIANS — a peer-learning platform for students at Prabhat Engineering College.
+
+The idea is simple: Connect · Learn · Share. Students can build a learning profile, share what they know, discover courses and peers, and track their learning progress.
+
+I’ve built the responsive Next.js frontend and a TypeScript/Express API backed by MongoDB, with JWT authentication and APIs for courses, skills, search, enrollment, comments, ratings, saved content, notifications, and progress.
+
+Live demo: [add your deployed website URL]
+Source code: [add your GitHub repository URL]
+
+Built with Next.js, TypeScript, custom CSS, Node.js, Express, MongoDB, Mongoose, JWT, and bcrypt.
+
+#NextJS #TypeScript #MongoDB #WebDevelopment #PeerLearning #EducationTechnology
+
